@@ -1,0 +1,14 @@
+﻿@using ComponentInteraction.Models
+
+<div class="border border-primary border-3 p-3">
+    <h3>Parent</h3>
+    <div>Value at parent: <span class="text-danger">@ExampleInstance.Data</span></div>
+    <ComponentInteraction.Shared.ParameterWithDelegate.Child ExampleInstance="ExampleInstance" ExampleInstanceChanged="StateHasChanged" />
+</div>
+
+@code {
+    public ExampleClass ExampleInstance { get; set; } = new()
+    {
+        Data = "Data from parent"
+    };
+}

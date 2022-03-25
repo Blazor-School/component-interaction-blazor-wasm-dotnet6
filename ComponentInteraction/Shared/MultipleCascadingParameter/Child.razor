@@ -1,0 +1,12 @@
+﻿<div class="border border-success border-3 p-3">
+    <h3>Child Component</h3>
+    <div>Received value1 at child: <span class="text-danger">@Data1</span></div>
+    <div>Received value2 at child: <span class="text-danger">@ReceivedValue2</span></div>
+</div>
+
+@code {
+    [CascadingParameter]
+    public string Data1 { get; set; } = "";
+    [CascadingParameter(Name = "CascadeParam2")]
+    public string ReceivedValue2 { get; set; } = "";
+}

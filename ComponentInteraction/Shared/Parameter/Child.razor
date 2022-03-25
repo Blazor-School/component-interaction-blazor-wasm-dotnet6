@@ -1,0 +1,14 @@
+﻿<div class="border border-success border-3 p-3">
+    <h3>Child Component</h3>
+    <div>Received input parameter: <span class="text-danger">@InputParameter</span></div>
+    <div>Received required input parameter: <span class="text-danger">@RequiredInputParameter</span></div>
+</div>
+
+@code {
+    [Parameter]
+    public string InputParameter { get; set; } = "Default Value";
+
+    [EditorRequired]
+    [Parameter]
+    public string RequiredInputParameter { get; set; } = "";
+}

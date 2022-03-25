@@ -1,0 +1,10 @@
+﻿<div class="border border-primary border-3 p-3">
+    <h3>Parent</h3>
+    <div>Parent component is passing: <span class="text-danger">@FirstData</span> and <span class="text-danger">@SecondData</span> to the child component.</div>
+    <Child InputParameter="FirstData" RequiredInputParameter="SecondData" />
+</div>
+
+@code {
+    public string FirstData { get; set; } = "First data";
+    public string SecondData { get; set; } = "Second data";
+}

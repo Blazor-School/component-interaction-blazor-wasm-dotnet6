@@ -1,0 +1,26 @@
+﻿@using ComponentInteraction.Models
+
+<div class="border border-success border-3 p-3">
+    <h3>Child Component</h3>
+    <div>Received input parameter: <span class="text-danger">@ExampleInstance.Data</span></div>
+    <button class="btn btn-outline-success" @onclick="Correct">Correct</button>
+    <button class="btn btn-outline-danger" @onclick="Mistake">Mistake</button>
+</div>
+
+@code {
+    [Parameter]
+    public ExampleClass ExampleInstance { get; set; } = new();
+
+    public void Correct()
+    {
+        ExampleInstance.Data = "Value changed";
+    }
+
+    public void Mistake()
+    {
+        ExampleInstance = new()
+        {
+            Data = "Reference changed"
+        };
+    }
+}

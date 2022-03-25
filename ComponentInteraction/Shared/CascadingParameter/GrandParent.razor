@@ -1,0 +1,11 @@
+﻿<div class="border border-danger border-3 p-3">
+    <h3>Grand Parent Component</h3>
+    The grand parent component is passing <span class="text-danger">@Data</span> to the descendant components.
+    <CascadingValue Value="Data">
+        <Parent />
+    </CascadingValue>
+</div>
+
+@code {
+    public string Data { get; set; } = "Data from grand parent component.";
+}

@@ -1,0 +1,21 @@
+﻿@using ComponentInteraction.Models
+
+<div class="border border-success border-3 p-3">
+    <h3>Child Component</h3>
+    <div>Received input parameter: <span class="text-danger">@ExampleInstance.Data</span></div>
+    <button type="button" class="btn btn-outline-primary" @onclick="UpdateValue">Update Value</button>
+</div>
+
+@code {
+    [Parameter]
+    public ExampleClass ExampleInstance { get; set; } = new();
+
+    [Parameter]
+    public EventCallback ExampleInstanceChanged { get; set; }
+
+    public void UpdateValue()
+    {
+        ExampleInstance.Data = "Value changed at child";
+        ExampleInstanceChanged.InvokeAsync();
+    }
+}

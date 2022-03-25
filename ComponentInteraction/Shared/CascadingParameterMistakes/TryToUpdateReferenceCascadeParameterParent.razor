@@ -1,0 +1,26 @@
+﻿@using ComponentInteraction.Models
+
+<div class="border border-primary border-3 p-3">
+    <h3>Parent Component</h3>
+    <div>Received value at parent: <span class="text-danger">@ReceivedValueAtParent.Data</span></div>
+    <button type="button" class="btn btn-outline-success" @onclick="Correct">Correct (Change the value)</button>
+    <button type="button" class="btn btn-outline-danger" @onclick="Mistake">Mistake (Change the reference)</button>
+</div>
+
+@code {
+    [CascadingParameter]
+    public ExampleClass ReceivedValueAtParent { get; set; } = new();
+
+    public void Correct()
+    {
+        ReceivedValueAtParent.Data = "Value changed";
+    }
+
+    public void Mistake()
+    {
+        ReceivedValueAtParent = new()
+        {
+            Data = "Reference changed"
+        };
+    }
+}
